@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+    <link rel="apple-touch-icon" href="/pwa-512x512.png" />
+
+    <meta name="msapplication-TileColor" content="#ff0000" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Caching External Resources for the Offline mode.
+		Learn more: https://developers.google.com/web/tools/workbox/guides/handle-third-party-requests
+		-->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <style>
+      body {
+        margin: 0;
+        background: #121619;
+        height: 100vh;
+      }
+
+      /*
+			    Styling for app shell - start
+			   */
+      .__app_shell_container {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        height: 100vh;
+      }
+
+      .__app_shell_header {
+        background-color: #21272a;
+        width: 100%;
+      }
+
+      .__app_shell_header_content {
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        margin: 0 auto;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loader {
+        width: 1.25rem;
+        height: 1.25rem;
+        border: 5px solid hsl(212 34% 24% / 1);
+        border-bottom-color: #fff;
+        border-radius: 50%;
+        display: inline-block;
+        animation: rotation 1s linear infinite;
+      }
+
+      .loader_container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+      /*
+			Styling for app shell - end
+			*/
+    </style>
+    <link
+      rel="stylesheet"
+      crossorigin="anonymous"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+    />
+    <title>Web App</title>
+  </head>
+  <body>
+    <!---App shell for PWA-->
+    <div id="root">
+      <div class="__app_shell_container">
+        <header class="__app_shell_header">
+          <div class="__app_shell_header_content">
+           
+          </div>
+        </header>
+        <div class="loader_container">
+          <div class="loader"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      const sw = "sw.js";
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register(sw).then(
+            function (registration) {
+              // Registration was successful
+              console.log(
+                "ServiceWorker registration successful with scope: ",
+                registration.scope
+              );
+            },
+            function (error) {
+              // registration failed
+              console.log("ServiceWorker registration failed: ", error);
+            }
+          );
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+    <link rel="apple-touch-icon" href="/pwa-512x512.png" />
+
+    <meta name="msapplication-TileColor" content="#ff0000" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Caching External Resources for the Offline mode.
+		Learn more: https://developers.google.com/web/tools/workbox/guides/handle-third-party-requests
+		-->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+          "Droid Sans", "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background: #121619;
+        color: white;
+        height: 100vh;
+      }
+
+      h1 {
+        font-weight: 400;
+      }
+      /*
+			    Styling for app shell - start
+			   */
+      .__app_shell_container {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        height: 100vh;
+      }
+
+      .__app_shell_header {
+        background-color: #21272a;
+        width: 100%;
+      }
+
+      .__app_shell_header_content {
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: space-between;
+        padding: 0 1rem;
+        margin: 0 auto;
+      }
+
+      .__app_shell_offline_message {
+        height: 100%;
+        padding: 1rem;
+      }
+      /*
+			Styling for app shell - end
+			*/
+    </style>
+    <link
+      rel="stylesheet"
+      crossorigin="anonymous"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
+    />
+    <title>Network Unavailable | Web App</title>
+  </head>
+  <body>
+    <!---App shell for PWA-->
+    <div id="root">
+      <div class="__app_shell_container">
+        <header class="__app_shell_header">
+          <div class="__app_shell_header_content">
+           
+          </div>
+        </header>
+        <main>
+          <div class="__app_shell_offline_message">
+            <h1>No Internet</h1>
+            <ul>
+              <li>Turning off airplane mode</li>
+              <li>Turning on mobile data or Wi-Fi</li>
+              <li>Checking the signal in your area</li>
+            </ul>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

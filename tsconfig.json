@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src/",
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@components/*": ["components/*"],
+      "@theme": ["theme/index.ts"],
+      "@icons/*": ["icons/*"],
+      "@routes": ["routes/"],
+      "@hooks/*": ["hooks/*"],
+      "@config": ["config.ts"],
+      "@context/*": ["context/*"],
+      "@utils/*": ["utils/*"],
+      "@store": ["store/"],
+      "@store/*": ["store/*"],
+      "@api/*": ["api/*"],
+      "@assets/*": ["assets/*"],
+      "@constants/*": ["constants/*"],
+      "@templates/*": ["templates/*"]
+    },
+    "types": ["vite-plugin-pwa/client"],
+    "typeRoots": ["./types/index.d.ts"]
+  },
+
+  "include": ["./src"]
+}
